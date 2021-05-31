@@ -1,0 +1,32 @@
+{
+  "name": "ex-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev-local": "env-cmd -f .env.local next",
+    "dev": "env-cmd -f .env.development next dev",
+    "dev-pro": "env-cmd -f .env.production next dev",
+    "build": "env-cmd -f .env.production next build",
+    "build-dev": "env-cmd -f .env.development next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "10.2.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "webpack": "^4.46.0"
+  },
+  "devDependencies": {
+    "@types/node": "^15.6.1",
+    "@types/react": "^17.0.8",
+    "@types/react-dom": "^17.0.5",
+    "@zeit/next-sass": "^1.0.1",
+    "env-cmd": "^10.1.0",
+    "node-sass": "5.0.0",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-loader": "4.2.0",
+    "postcss-preset-env": "^6.7.0",
+    "sass-loader": "10.1.1",
+    "typescript": "^4.3.2"
+  }
+}

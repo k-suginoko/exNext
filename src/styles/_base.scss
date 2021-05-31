@@ -1,0 +1,31 @@
+/* base.scss */
+/* 汎用scss */
+
+
+// min width(PC)
+// max width(Sp)
+$minWidth: 780px;
+$maxSpWidth: 779px;
+
+// min contents width(PC)
+// $minContentsWidth: 900px;
+
+
+// min height(PC)
+$minHeight: 720px;
+
+// min height(SP)
+$minHeightSp: 667px;
+
+// max height(PC)
+$maxHeight: 1080px;
+
+// min mobile width
+$minWidthSp: 375px;
+
+// max mobile width
+$maxWidthSp: 768px;
+
+// font
+$fontR: 'NotoSansJP-Regular';
+$fontB: 'NotoSansJP-Bold';

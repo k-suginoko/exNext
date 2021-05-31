@@ -1,0 +1,182 @@
+/* button */
+// @import '../../../index.scss';
+@import "../../styles/color";
+@import "../../styles/base";
+@import "../../styles/mixin";
+
+.button {
+  width: auto;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+
+  &--round {
+    width: 320px;
+    border-radius: 36px;
+    height: 64px;
+    padding: 0 10px;
+    border: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+
+    @include mq("sp") {
+      width: 247px;
+      height: 48px;
+      border-radius: 24px;
+    }
+  }
+
+  &--icon {
+    border: 0;
+    background-color: transparent;
+  }
+
+  &--wrap {
+    width: auto;
+    height: auto;
+    border: 0;
+    background-color: transparent;
+  }
+
+  &:focus {
+    outline-width: 0;
+  }
+
+  &--sqSmall {
+    width: 86px;
+    height: 40px;
+    background-color: #818181;
+    box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: white;
+    border: 0;
+  }
+
+  &--sqLarge {
+    width: 140px;
+    height: 40px;
+    background-color: #818181;
+    box-shadow: inset 0px 0px 2px 1px rgba(0, 0, 0, 0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: white;
+    border: 0;
+  }
+
+  &--gray {
+    background: $lightGray;
+    font-family: $fontB;
+    font-style: normal;
+    font-size: 20px;
+    color: white;
+
+    @include mq("sp") {
+      font-size: 18px;
+    }
+  }
+
+  &--darkBlue {
+    background: $darkBlue;
+    font-family: $fontB;
+    font-style: normal;
+    font-size: 20px;
+    color: white;
+    border: none;
+
+    @include mq("sp") {
+      font-size: 18px;
+    }
+  }
+
+  &--white {
+    background: white;
+    font-family: $fontB;
+    font-style: normal;
+    font-size: 20px;
+    color: $darkBlue;
+    border: 1px solid rgba(7, 34, 82, 0.4);
+
+    @include mq('sp') {
+      font-size: 18px;
+    }
+  }
+
+  &--border {
+    background-color: transparent;
+    border: 2px solid rgba(7, 34, 82, 0.2);
+    box-sizing: border-box;
+    border-radius: 40px;
+    font-family: $fontB;
+    font-weight: normal;
+    font-size: 16px;
+    color: $darkBlue;
+    padding: 12px 20px;
+  }
+
+  &--orange {
+    font-family: $fontB;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 100%;
+    border: 2px solid rgba(250, 114, 10, 0.54);
+  }
+
+  &--xsmall {
+    width: 96px;
+    height: 36px;
+    border-radius: 36px;
+    font-size: 16px;
+  }
+
+  &--small {
+    width: 168px;
+    height: 44px;
+    border-radius: 22px;
+    font-size: 16px;
+  }
+
+  &--medium {
+    width: 200px;
+    height: 44px;
+    border-radius: 36px;
+    font-size: 16px;
+  }
+
+  &--large {
+    width: 248px;
+    height: 44px;
+    border-radius: 36px;
+    font-size: 16px;
+  }
+
+  &--xlarge {
+    width: 320px;
+    height: 64px;
+    border-radius: 36px;
+    font-size: 20px;
+  }
+
+  &:disabled {
+    background: $lightGray;
+    font-family: $fontB;
+    cursor: not-allowed;
+  }
+
+  &--navy {
+    background-color: $darkBlue;
+    color: #fff;
+  }
+}
