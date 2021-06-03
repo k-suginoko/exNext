@@ -32,6 +32,7 @@ module.exports = withSass({
     }
   },
   images: {
-    domains: ['k-suginoko.github.io'],
+    // domains: ['k-suginoko.github.io'],
+    loader : 'static'
   },
 })
