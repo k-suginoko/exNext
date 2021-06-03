@@ -32,7 +32,7 @@ module.exports = withSass({
     }
   },
   images: {
-    // domains: ['k-suginoko.github.io'],
-    loader : 'static'
+    loader: "imgix",
+    path: "",
   },
 })
