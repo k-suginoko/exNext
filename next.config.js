@@ -31,4 +31,7 @@ module.exports = withSass({
       '/about': { page: '/about' },
     }
   },
+  images: {
+    domains: ['k-suginoko.github.io'],
+  },
 })
