@@ -5,6 +5,7 @@ module.exports = withSass({
   future: {
     webpack5: false,
   },
+  assetPrefix: process.env.NODE_ENV === "production" ? "/exNext" : "",
   trailingSlash: true, // pages/aaa.js というコードが、aaa.html というファイルではなく、aaa/index.html というファイルとして出力されるようになります。
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     // Note: we provide webpack above so you should not `require` it
