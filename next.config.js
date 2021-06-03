@@ -12,6 +12,7 @@ module.exports = withSass({
     config.plugins.push(
       new webpack.IgnorePlugin(/\/__tests__\//),
     )
+    config.resolve.alias['~'] = resolve(__dirname, 'src')
 
     // Important: return the modified config
     return config
