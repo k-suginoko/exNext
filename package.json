@@ -6,9 +6,10 @@
     "dev-local": "env-cmd -f .env.local next",
     "dev": "env-cmd -f .env.development next dev",
     "dev-pro": "env-cmd -f .env.production next dev",
-    "build": "env-cmd -f .env.production next build && next export",
-    "export": "env-cmd -f .env.development next export",
+    "build": "env-cmd -f .env.production next build",
+    "export": "next export",
     "build-dev": "env-cmd -f .env.development next build",
+    "deploy": "env-cmd -f .env.production next build",
     "start": "next start"
   },
   "dependencies": {
