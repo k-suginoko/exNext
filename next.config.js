@@ -3,7 +3,7 @@ const withSass = require('@zeit/next-sass')
 
 const route = {
   '/': { page: '/' },
-  '/exNext/about': { page: '/about' },
+  '/about': { page: '/about' },
 }
 
 module.exports = withSass({
@@ -36,6 +36,6 @@ module.exports = withSass({
   },
   images: {
     loader: "imgix",
-    path: "",
+    path: process.env.NODE_ENV === "production" ? "https://k-suginoko.github.io/exNext/" : "/",
   },
 })

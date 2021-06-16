@@ -18,9 +18,20 @@ const Home: FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Link href="/exNext/about">
+      <Link href="/about">
         こちら
       </Link>
+
+      <p>画像を配置1</p>
+    <Image
+      src={"/vercel.svg"}
+      alt="Picture of the author"
+      width={200}
+      height={200}
+    />
+
+    <p>画像を配置2</p>
+    <img src={ `/vercel.svg` } />
 
       <main className={styles.main}>
         <h1 className={styles.title}>
