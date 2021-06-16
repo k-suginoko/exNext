@@ -23,7 +23,7 @@ const About:FC = memo(({
   }, [ test.count ])
 
   useEffect(() => {
-    console.log('test', test, RootState)
+    console.log('test', test)
   }, [ test ])
 
   return <div className="about">
