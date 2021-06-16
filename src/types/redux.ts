@@ -1,5 +1,5 @@
-import store from 'src/store'
-import rootReducer from 'src/rootReducer'
+import store from 'store'
+import rootReducer from 'modules/rootReducer'
 
 export type RejectedAction<ThunkArg> = {
   type: string,
