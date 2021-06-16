@@ -1,7 +1,7 @@
 import React, { FC, memo, useState, useEffect, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 // types
-import { RouteState } from 'types'
+import { RootState } from 'types'
 // actions
 import { setCount } from 'modules/textModules'
 // components
@@ -9,7 +9,7 @@ import Button from '../component/atoms/Button/';
 // styles
 import '../styles/about.scss'
 
-const selector = (state: RouteState) => ({ test: state.test })
+const selector = (state: RootState) => ({ test: state.test })
 
 const About:FC = memo(({
 
@@ -23,7 +23,7 @@ const About:FC = memo(({
   }, [ test.count ])
 
   useEffect(() => {
-    console.log('test', test, RouteState)
+    console.log('test', test, RootState)
   }, [ test ])
 
   return <div className="about">

@@ -1,9 +1,14 @@
 const path = require('path')
 const withSass = require('@zeit/next-sass')
 
+const route = {
+  '/': { page: '/' },
+  '/about': { page: '/about' },
+}
+
 module.exports = withSass({
   future: {
-    webpack5: false,
+    webpack5: false, // webpack4使う場合。webpack5が不安定でうまくいかなかった
   },
   assetPrefix: process.env.NODE_ENV === "production" ? "https://k-suginoko.github.io/exNext/" : "",
   trailingSlash: true, // pages/aaa.js というコードが、aaa.html というファイルではなく、aaa/index.html というファイルとして出力されるようになります。
@@ -27,10 +32,7 @@ module.exports = withSass({
     defaultPathMap,
     { dev, dir, outDir, distDir, buildId }
   ) {
-    return {
-      '/': { page: '/' },
-      '/about': { page: '/about' },
-    }
+    return route
   },
   images: {
     loader: "imgix",
