@@ -3,7 +3,7 @@ const withSass = require('@zeit/next-sass')
 
 const route = {
   '/': { page: '/' },
-  '/about': { page: '/about' },
+  '/exNext/about': { page: '/about' },
 }
 
 module.exports = withSass({

@@ -18,7 +18,7 @@ const Home: FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <Link href="/about">
+      <Link href="/exNext/about">
         こちら
       </Link>
 
