@@ -10,6 +10,7 @@ module.exports = withSass({
   future: {
     webpack5: false, // webpack4使う場合。webpack5が不安定でうまくいかなかった
   },
+  basePath: process.env.NODE_ENV === "production" ? '/exNext' : "",
   assetPrefix: process.env.NODE_ENV === "production" ? "https://k-suginoko.github.io/exNext/" : "",
   trailingSlash: true, // pages/aaa.js というコードが、aaa.html というファイルではなく、aaa/index.html というファイルとして出力されるようになります。
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
