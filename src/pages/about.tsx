@@ -36,7 +36,7 @@ const About:FC = memo(({
         method: 'post',
         body: JSON.stringify(value),
         headers: {
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
       }
     )
