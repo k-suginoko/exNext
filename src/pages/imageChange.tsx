@@ -10,8 +10,8 @@ import Button from '../component/atoms/Button/';
 // styles
 import '../styles/about.scss'
 
-const CANVAS_WIDTH = 1024
-const CANVAS_HEIGHT = 768
+const CANVAS_WIDTH = 919
+const CANVAS_HEIGHT = 518
 
 const ImageChange: FC = memo(() => {
   const [ value, setValue ] = useState<object>({ text: '' })
