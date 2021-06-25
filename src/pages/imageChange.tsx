@@ -48,7 +48,7 @@ const ImageChange: FC = memo(() => {
 
   return (
     <div className="imageChange">
-      <p>Github pagesはサーバー言語使えない？ぽいので、SVGをPNGに変換する練習</p>
+      <p>Github pagesはサーバー言語使えない？ぽいので、NextJS使ってSVGをcanvas使ってPNGに変換する練習</p>
       <input type="test" value={ value?.text || '' } onChange={ (e) => changeInput(e.target.value, 'text') } />
       <p>プレビュー</p>
       <SvgBase textRef={ svgRef } text={ value?.text } mainRef={ mRef } />
