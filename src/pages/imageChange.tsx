@@ -1,6 +1,6 @@
 import React, { FC, memo, useState, useEffect, useRef, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import Image from 'next/image'
+// import Image from 'next/image'
 // types
 import { RootState } from 'types'
 // actions
@@ -9,30 +9,14 @@ import { setCount } from 'modules/textModules'
 import Button from '../component/atoms/Button/';
 // styles
 import '../styles/about.scss'
-// svg file
-import SVG, { Props as SVGProps } from 'react-inlinesvg';
-
-type Props = {
-  userId: number
-}
-
-const selector = (state: RootState) => ({ test: state.test })
 
 const CANVAS_WIDTH = 1024
 const CANVAS_HEIGHT = 768
 
-const About:FC<Props> = memo(({
-  userId
-}) => {
-  const dispatch = useDispatch()
-  const { test } = useSelector(selector)
+const ImageChange: FC = memo(() => {
   const [ value, setValue ] = useState<object>({ text: '' })
   const [ image, setImage ] = useState<any>(null)
   const createRef = React.useRef(null)
-
-  // const SvgImage = React.forwardRef<SVGElement, SVGProps>((props, ref) => (
-  //   <SVG innerRef={ref} title="svgImage" {...props} />
-  // ));
   const svgRef = useRef<SVGElement>(null);
   const mRef = useRef<SVGElement>(null);
 
@@ -40,66 +24,30 @@ const About:FC<Props> = memo(({
     setValue({ [key]: val })
   }
 
-  const handleCountUp = useCallback(() => {
-    const count = test.count || 0
-    dispatch(setCount(count + 1))
-  }, [ test.count ])
-
-  // const handleApi = async () => {
-    // github pagesだとサーバー言語は対応してないということで叩けないらしい
-    // const result = await fetch(
-    //   '/test.php',
-    //   {
-    //     method: 'post',
-    //     body: JSON.stringify(value),
-    //     headers: {
-    //       'Content-Type': 'application/json;charset=utf-8'
-    //     }
-    //   }
-    // )
-    // .then(response => response.json())
-    // .then(data => console.log(data))
-
-    // console.log('api test', result)
-  // }
 
   const createImage = () => {
+    if (createRef == null && mRef == null) return
+    console.log(mRef)
+    const svgData = new XMLSerializer().serializeToString(mRef.current)
 
-  }
-
-  useEffect(() => {
-    console.log('test', test, userId)
-
-    // canvasを作る
-    // initDrawCanvas()
-  }, [ test ])
-
-  useEffect(() => {
-    // svgRef.current.textContent = value
-  }, [ value ])
-
-  function initDrawCanvas () {
-    if (createRef == null) return
-    console.log('createRef', createRef)
     createRef.current.width = CANVAS_WIDTH
     createRef.current.height = CANVAS_HEIGHT
-    createRef.current.getContext('2d')
-    const imageEl = new Image()
+    const ctx = createRef.current.getContext('2d')
+    const imageEl = new Image();
 
-    const staticSvgBlob = new Blob([])
+    imageEl.onload = () => {
+      ctx.drawImage(imageEl, 0, 0)
+      const a = document.createElement('a')
+      a.href = createRef.current.toDataURL('image/png')
+      a.setAttribute('download', 'image/png')
+      a.dispatchEvent(new MouseEvent('click'))
+    }
+
+    imageEl.src = `data:image/svg+xml;charset=utf-8;base64,${ btoa(unescape(encodeURIComponent(svgData))) }`
   }
 
-  function drawImage () {
-    
-  }
-
-
-  return <div className="about">
-    <p className="test">カウントしてstore保存からの数字更新するのを実験的につくるお</p>
-    <Button onClick={ handleCountUp }>カウント</Button>
-    <div>カウント数：{ test.count }</div>
-
-    <div className="api">
+  return (
+    <div className="imageChange">
       <p>Github pagesはサーバー言語使えない？ぽいので、SVGをPNGに変換する練習</p>
       <input type="test" value={ value?.text || '' } onChange={ (e) => changeInput(e.target.value, 'text') } />
       <p>プレビュー</p>
@@ -108,40 +56,12 @@ const About:FC<Props> = memo(({
 
       <canvas ref={ createRef } />
     </div>
-
-    <p>画像確認配置1(NextJS Image)</p>
-    <Image
-      src={"/vercel.svg"}
-      alt="vercel"
-      width={200}
-      height={200}
-    />
-
-    <Image
-      src={"/text.svg"}
-      alt="kujira"
-      width={200}
-      height={200}
-    />
-
-    <p>画像確認配置2(Normal Image)</p>
-    <img src={ `/vercel.svg` } />
-
-  </div>
+  )
 })
 
-export async function getStaticProps () {
-  const id = 100
+export default ImageChange
 
-  return {
-    props: {
-      userId: id
-    },
-    revalidate: 1,
-  }
-}
 
-export default About
 
 type SvgProps = {
   textRef: any,

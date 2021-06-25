@@ -4,6 +4,7 @@ const withSass = require('@zeit/next-sass')
 const route = {
   '/': { page: '/' },
   '/about': { page: '/about' },
+  '/imageChange': { page: '/imageChange' },
 }
 
 module.exports = withSass({
@@ -19,6 +20,11 @@ module.exports = withSass({
     config.plugins.push(
       new webpack.IgnorePlugin(/\/__tests__\//),
     )
+
+    // config.module.rules.push({
+    //   test: /\.svg$/,
+    //   use: ["@svgr/webpack"]
+    // });
 
     // Important: return the modified config
     return config

@@ -21,7 +21,11 @@ const Home: FC = () => {
       <p>もろもろ実験</p>
 
       <Link href="/about">
-        こちら
+        練習場
+      </Link>
+
+      <Link href="/imageChange">
+        SVGを編集してcanvas使ってpng画像をNextJSで作ってみよう
       </Link>
 
       <p>画像を配置1</p>
