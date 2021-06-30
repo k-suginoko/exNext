@@ -28,6 +28,10 @@ const Home: FC = () => {
         SVGを編集してcanvas使ってpng画像をNextJSで作ってみよう
       </Link>
 
+      <Link href="/questionSlot">
+        GAS使って質問ルーレットをNextJSで作る
+      </Link>
+
       <p>画像を配置1</p>
     <Image
       src={"/vercel.svg"}
