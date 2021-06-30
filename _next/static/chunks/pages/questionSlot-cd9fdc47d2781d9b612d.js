@@ -1,0 +1,1 @@
+_N_E=(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[13],{"6+tv":function(n,t,o){"use strict";o.r(t);var e=o("nKUr");o("vJKn");var i=o("q1tI"),_=Object(i.memo)((function(){return Object(e.jsx)("div",{children:"test"})}));t.default=_},WSxy:function(n,t,o){(window.__NEXT_P=window.__NEXT_P||[]).push(["/questionSlot",function(){return o("6+tv")}])}},[["WSxy",0,1,2]]]);
