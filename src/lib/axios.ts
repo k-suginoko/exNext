@@ -5,6 +5,13 @@
 
  import axios from "axios";
  import { AxiosInstance, AxiosResponse } from 'axios'
+ import axiosJsonpAdapter from 'axios-jsonp'
+
+ const params: object = {
+  method: 'GET',
+  crossDomain: true,
+  // adapter: axiosJsonpAdapter
+}
 
  const instance: AxiosInstance = axios.create({
    baseURL: '',
@@ -30,6 +37,16 @@
     return Promise.reject(err)
    }
  )
+
+ export const get = async (url) => {
+   return await axios.get(url, params)
+   .then((res: any) => {
+     return res.json()
+   })
+   .then(function (response) {
+     console.log('nnnnn', response.data);
+   })
+ }
 
  export default async (url: string, params: any = {}): Promise<any> => {
   const formData = new FormData()
