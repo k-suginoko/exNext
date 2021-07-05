@@ -5,6 +5,7 @@ const route = {
   '/': { page: '/' },
   '/about': { page: '/about' },
   '/imageChange': { page: '/imageChange' },
+  '/questionSlot': { page: '/questionSlot' },
 }
 
 module.exports = withSass({
