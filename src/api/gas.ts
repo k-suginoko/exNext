@@ -4,10 +4,18 @@ import { get } from 'lib/axios'
 const getParams: object = {
   method: 'GET',
   mode : "no-cors",
-  headers:{
-    "Content-Type": "application/json"
-  }
+  // headers:{
+  //   "Content-Type": "application/json"
+  // }
 }
+
+// const getParams: object = {
+//   method: 'GET',
+//   mode : "no-cors",
+//   // headers:{
+//   //   "Content-Type": "application/json"
+//   // }
+// }
 
 class GasApi {
   constructor () {
@@ -18,10 +26,14 @@ class GasApi {
    * ガワだけ用意したGasのAPI
    */
   async fetchAll () {
-    return await get('https://script.google.com/a/macros/brewus.co.jp/s/AKfycbwRvLQq4-lyJZ6LtUlu4kbIN4qTwNDBzAjIxglmaDHCz5ZjDh7hILDGoi76MvsFhWnVwA/exec', getParams)
-    .then((res: any) => {
+    return await fetch('https://script.google.com/a/macros/brewus.co.jp/s/AKfycbwRvLQq4-lyJZ6LtUlu4kbIN4qTwNDBzAjIxglmaDHCz5ZjDh7hILDGoi76MvsFhWnVwA/exec', getParams)
+    .then(res => {
       console.log('ress', res)
     })
+    // return await get('https://script.google.com/a/macros/brewus.co.jp/s/AKfycbwRvLQq4-lyJZ6LtUlu4kbIN4qTwNDBzAjIxglmaDHCz5ZjDh7hILDGoi76MvsFhWnVwA/exec', getParams)
+    // .then((res: any) => {
+    //   console.log('ress', res)
+    // })
   }
 }
 

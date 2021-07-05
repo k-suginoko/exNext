@@ -39,6 +39,7 @@
  )
 
  export const get = async (url) => {
+   console.log('axioss', axios.jsonp)
    return await axios.get(url, params)
    .then((res: any) => {
      return res.json()
