@@ -10,7 +10,7 @@
  const params: object = {
   method: 'GET',
   crossDomain: true,
-  // adapter: axiosJsonpAdapter
+  adapter: axiosJsonpAdapter
 }
 
  const instance: AxiosInstance = axios.create({
@@ -43,6 +43,9 @@
    return await axios.get(url, params)
    .then(function (response) {
      console.log('nnnnn', response.data);
+   })
+   .catch(err => {
+     console.log('err', err)
    })
  }
 
