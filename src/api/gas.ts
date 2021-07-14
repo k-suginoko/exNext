@@ -38,7 +38,7 @@ class GasApi {
    * ガワだけ用意したGasのAPI
    */
   async fetchAll () {
-    return await fetch('https://script.google.com/macros/s/AKfycbzO0aqbKBNdP72R2aEyXHsM4AB7wmJsywug6GzDxXoQnSsrAqLLig3DHte2TbnO4vRkRg/exec?callback=getJson', { redirect: 'follow' })
+    return await fetch('https://script.google.com/macros/s/AKfycbzptHPxsD0QCakzXnr29YKTPpR84wcH_CYfHOMuNCWZuDlKLN1pxpsQ9cSfQFOdLIotpA/exec?callback=getJson', { redirect: 'follow' })
     .then(res => {
       // redirect followにしておくとリダイレクト先まで追従してリソースの取得を行う
       console.log('ここは？', res, res.url)
