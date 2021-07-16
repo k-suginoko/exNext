@@ -1,0 +1,24 @@
+.maze {
+  width: 800px;
+
+  &__canvas {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    div {
+      width: 20px;
+      border: 1px solid red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 20px 0 0;
+    }
+  }
+}

@@ -25,6 +25,7 @@ const QuestionSlot: FC = memo((props) => {
   const timer = useRef(null)
   // const Game = Slot
 
+
   const handleStartSlot = () => {
     if (state.sheetTitle == null) return
     // setData(null)
