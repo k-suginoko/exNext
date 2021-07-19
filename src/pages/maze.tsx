@@ -74,7 +74,7 @@ const Maze: FC = () => {
 
   const updateMap = () => {
     MAP_IMAGE = new Image()
-    MAP_IMAGE.src = '/map.png'
+    MAP_IMAGE.src = process.env.NODE_ENV === "production" ? '/exNext/map.png' : '/map.png'
 
     context.fillStyle = "rgb( 0, 0, 0 )"
     context.fillRect(0, 0, 300, 300);
