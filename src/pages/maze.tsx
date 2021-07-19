@@ -27,32 +27,113 @@ const Maze: FC = () => {
   const [ nico, setNico ] = useState<any>(null)
   const [ mapData, setMapData ] = useState<any>(null)
 
+  // 主人公が動かせるかどうか
+  // const moveCheck = (key, nico) => {
+  //   let x = nico.x/10
+  //   let y = nico.y/10
+  //   console.log('map', MAP)
+  //   switch (key) {
+  //     case 'left':
+  //       x--
+  //       console.log('left push', MAP[y][x], x)
+  //       if (MAP[y][x] === 0) {
+  //         nico.move = 10
+  //       } 
+  //       break
+  //     case 'up':
+  //       if (y > 0) {
+  //         y--
+  //         if (MAP[y][x] === 0) {
+  //           nico.move = 10
+  //         } 
+  //       }
+  //       break
+  //     case 'down':
+  //       console.log('down push1', MAP[y][x], y)
+  //       if (y < 9) {
+  //         y++
+  //         console.log('down push2', MAP[y][x], y)
+  //         if (MAP[y][x] === 0) {
+  //           nico.move = 10
+  //         } 
+  //       }
+  //       break
+  //     case 'right':
+  //       x++
+  //       if (MAP[y][x] === 0) {
+  //         nico.move = 10
+  //       } 
+  //       break
+  //   }
+  // }
+
 
   const handleClick = useCallback((type) => {
     const n = Object.assign({}, nico)
-    n.move = 10
+    
+    // 移動チェック
+    if (n.move === 0) {
+      let x = n.x/10
+      let y = n.y/10
 
-    switch (type) {
-      case 'left':
-        n.x -= 10
-        break
-      case 'up':
-        n.y -= 10
-        break
-      case 'down':
-        n.y += 10
-        break
-      case 'right':
-        n.x += 10
-        break
+      switch (type) {
+        case 'left':
+          x--
+          if (MAP[y][x] === 1) {
+            n.move = 10
+          } 
+          break
+        case 'up':
+          if (y > 0) {
+            y--
+            if (MAP[y][x] === 1) {
+              n.move = 10
+            } 
+          }
+          break
+        case 'down':
+          if (y < 9) {
+            y++
+            if (MAP[y][x] === 1) {
+              n.move = 10
+            } 
+          }
+          break
+        case 'right':
+          x++
+          if (MAP[y][x] === 1) {
+            n.move = 10
+          } 
+          break
+      }
     }
-    console.log(n)
-    setNico(n)
-    context.clearRect(0, 0, 100, 100);
-    setMapData(null)
-    updateMap()
-    // context.drawImage( n.img, n.x, n.y );
-  }, [ nico ])
+
+    // n.move = 10
+
+    if (n.move > 0) {
+      n.move -= 10;
+      switch (type) {
+        case 'left':
+          n.x -= 10
+          break
+        case 'up':
+          n.y -= 10
+          break
+        case 'down':
+          n.y += 10
+          break
+        case 'right':
+          n.x += 10
+          break
+      }
+      console.log(n)
+      setNico(n)
+      context.clearRect(0, 0, 100, 100);
+      setMapData(null)
+      updateMap()
+      // context.drawImage( n.img, n.x, n.y );
+    }
+  }, [ nico, mapData ])
 
   const getContext = (): CanvasRenderingContext2D => {
     const canvas = canvasRef.current
