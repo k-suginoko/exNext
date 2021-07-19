@@ -101,7 +101,7 @@ const Maze: FC = () => {
     // 迷路ユーザー生成
     NICO_IMAGE = new Object()
     NICO_IMAGE.img = new Image()
-    NICO_IMAGE.img.src = '/niko.png'
+    NICO_IMAGE.img.src = process.env.NODE_ENV === "production" ? '/exNext/niko.png' : '/niko.png'
     NICO_IMAGE.x = 0
     NICO_IMAGE.y = 0
     NICO_IMAGE.move = 0
