@@ -18,12 +18,6 @@ const MAP = [
 ]
 
 
-
-const USER = {
-  y: 0,
-  x: 0
-}
-
 const Maze: FC = () => {
   const canvasRef = useRef(null)
   // const context = useRef(null)
@@ -54,7 +48,10 @@ const Maze: FC = () => {
     }
     console.log(n)
     setNico(n)
-    context.drawImage( n.img, n.x, n.y );
+    context.clearRect(0, 0, 100, 100);
+    setMapData(null)
+    updateMap()
+    // context.drawImage( n.img, n.x, n.y );
   }, [ nico ])
 
   const getContext = (): CanvasRenderingContext2D => {
@@ -72,11 +69,15 @@ const Maze: FC = () => {
 
   const createMap = () => {
     // MAPの生成
+    updateMap()
+  }
+
+  const updateMap = () => {
     MAP_IMAGE = new Image()
     MAP_IMAGE.src = '/map.png'
 
     context.fillStyle = "rgb( 0, 0, 0 )"
-    context.fillRect(0, 0, 100, 100);
+    context.fillRect(0, 0, 300, 300);
     // 迷路生成
     MAP_IMAGE.onload = () => {
       for (let y = 0; y < MAP.length; y++) {
@@ -117,17 +118,22 @@ const Maze: FC = () => {
   }, [])
 
   useEffect(() => {
-    if (context != null) {
+    if (context != null && nico == null) {
       createMap()
     }
   }, [context])
 
   useEffect(() => {
-    if (mapData) {
+    if (mapData && nico == null) {
       // map生成が遅いので、mapが出来てから
       createUser()
     }
-  }, [ mapData ])
+
+    if (mapData && nico != null) {
+      console.log('update', mapData, nico)
+      context.drawImage( nico.img, nico.x, nico.y );
+    }
+  }, [ mapData, nico ])
 
   return (
     <div className="maze">
