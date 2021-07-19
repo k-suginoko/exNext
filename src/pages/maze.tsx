@@ -5,7 +5,7 @@ import '../styles/maze.scss'
 // image
 
 const MAP = [
-  [1, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
   [1, 1, 0, 1, 0, 0, 0, 0, 0, 0],
   [0, 1, 1, 1, 0, 0, 0, 0, 0, 0],
   [0, 1, 0, 1, 0, 0, 0, 0, 0, 0],
@@ -26,6 +26,11 @@ const Maze: FC = () => {
   let NICO_IMAGE = null
   const [ nico, setNico ] = useState<any>(null)
   const [ mapData, setMapData ] = useState<any>(null)
+  const [ mapArray, setMapArray ] = useState(MAP)
+
+  const createRandomMap = (w, h) => {
+
+  }
 
   // 主人公が動かせるかどうか
   // const moveCheck = (key, nico) => {
@@ -79,7 +84,7 @@ const Maze: FC = () => {
       switch (type) {
         case 'left':
           x--
-          if (MAP[y][x] === 1) {
+          if (mapArray[y][x] === 1) {
             n.move = 10
           } 
           break
@@ -94,14 +99,14 @@ const Maze: FC = () => {
         case 'down':
           if (y < 9) {
             y++
-            if (MAP[y][x] === 1) {
+            if (mapArray[y][x] === 1) {
               n.move = 10
             } 
           }
           break
         case 'right':
           x++
-          if (MAP[y][x] === 1) {
+          if (mapArray[y][x] === 1) {
             n.move = 10
           } 
           break
@@ -148,7 +153,7 @@ const Maze: FC = () => {
     setContext(c)
   }
 
-  const createMap = () => {
+  const viewMap = () => {
     // MAPの生成
     updateMap()
   }
@@ -161,16 +166,16 @@ const Maze: FC = () => {
     context.fillRect(0, 0, 300, 300);
     // 迷路生成
     MAP_IMAGE.onload = () => {
-      for (let y = 0; y < MAP.length; y++) {
-        for (let x = 0; x < MAP[y].length; x++) {
-          if (MAP[y][x] === 1) {
+      for (let y = 0; y < mapArray.length; y++) {
+        for (let x = 0; x < mapArray[y].length; x++) {
+          if (mapArray[y][x] === 1) {
             context.drawImage(MAP_IMAGE, 0, 0, 10, 10, 10*x, 10*y, 10, 10)
           }
-          if (MAP[y][x] === 0) {
+          if (mapArray[y][x] === 0) {
             context.drawImage(MAP_IMAGE, 10, 0, 10, 10, 10*x, 10*y, 10, 10)
           }
 
-          if (x == MAP[y].length - 1 && y == MAP.length - 1) {
+          if (x == mapArray[y].length - 1 && y == mapArray.length - 1) {
             setMapData(MAP_IMAGE)
           }
         }
@@ -184,7 +189,7 @@ const Maze: FC = () => {
     NICO_IMAGE.img = new Image()
     NICO_IMAGE.img.src = process.env.NODE_ENV === "production" ? '/exNext/niko.png' : '/niko.png'
     NICO_IMAGE.x = 0
-    NICO_IMAGE.y = 0
+    NICO_IMAGE.y = 10
     NICO_IMAGE.move = 0
 
     NICO_IMAGE.img.onload = () => {
@@ -200,7 +205,7 @@ const Maze: FC = () => {
 
   useEffect(() => {
     if (context != null && nico == null) {
-      createMap()
+      viewMap()
     }
   }, [context])
 
@@ -228,7 +233,10 @@ const Maze: FC = () => {
       </div>
 
       <div className="maze__answer">
-        答えを見る
+        答えを見る(まだ)
+      </div>
+      <div className="maze__random">
+        ランダムで迷路を作る(まだ)
       </div>
     </div>
   )
