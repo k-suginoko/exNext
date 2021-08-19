@@ -15,7 +15,7 @@ module.exports = withSass({
   },
   basePath: process.env.NODE_ENV === "production" ? '/exNext' : "",
   assetPrefix: process.env.NODE_ENV === "production" ? "https://k-suginoko.github.io/exNext/" : "",
-  trailingSlash: true, // pages/aaa.js というコードが、aaa.html というファイルではなく、aaa/index.html というファイルとして出力されるようになります。
+  trailingSlash: true, // pages/aaa.js というコードが、aaa.html というファイルではなく、aaa/index.html というファイルとして出力されるようになります。末尾の/あるなし
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     // Note: we provide webpack above so you should not `require` it
     // Perform customizations to webpack config

@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev-local": "env-cmd -f .env.local next",
+    "dev-local": "env-cmd -f .env.local next dev",
     "dev": "env-cmd -f .env.development next dev",
     "dev-pro": "env-cmd -f .env.production next dev",
     "build": "env-cmd -f .env.production next build",
@@ -22,6 +22,7 @@
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
     "redux-logger": "^3.0.6",
+    "sass": "^1.36.0",
     "webpack": "^4.46.0"
   },
   "devDependencies": {
