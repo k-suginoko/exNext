@@ -5,12 +5,12 @@ class Slot {
 
   start (callback) {
     console.log('start', this.time)
-    this.timer = setTimeout(callback, this.time)
+    // this.timer = setTimeout(callback, this.time)
   }
 
   stop () {
     console.log('stop')
-    clearTimeout(this.timer)
+    // clearTimeout(this.timer)
   }
 }
 

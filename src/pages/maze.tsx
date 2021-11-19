@@ -30,8 +30,8 @@ const MAP = [
 
 // スタートとゴールを決める(とりあえず固定で)
 let START = { x: 0, y: 0 }
-START.x = 10
-START.y = 20
+START.x = 10 // 文字出すためのやつ
+START.y = 20 // 文字出すためのやつ
 let GOAL = { x: 0, y: 0 }
 GOAL.x = 90
 GOAL.y = 100
